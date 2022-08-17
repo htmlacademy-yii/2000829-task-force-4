@@ -1,7 +1,7 @@
 # Личный проект «TaskForce»
 
 * Студент: [Евгения Осипова](https://up.htmlacademy.ru/yii/4/user/2000829).
-* Наставник: `Неизвестно`.
+* Наставник: [Даниил Стерликов](https://htmlacademy.ru/profile/id1588317).
 
 ---
 
