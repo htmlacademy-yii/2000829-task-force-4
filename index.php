@@ -1,6 +1,6 @@
 <?php
-require_once 'Task.php';
+require_once 'classes/Task.php';
 
-$task = new Task($current_id, $current_status);
+$task = new Task(1, null, 'new');
 
-assert($task->getNewStatus('cancelled') == Task::STATUS_CANCEL, 'cancel');
+assert($task->getNewStatus(Task::ACTION_CANCEL) === Task::STATUS_CANCEL, 'cancel');

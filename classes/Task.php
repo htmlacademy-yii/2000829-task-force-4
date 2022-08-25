@@ -55,11 +55,11 @@ class Task
         }
         if ($current_id === $this->implementer_id) {
             $availableAction = [
-                self::STATUS_NEW => self::ACTION_RESPON,
+                self::STATUS_NEW => self::ACTION_RESPOND,
                 self::STATUS_WORK => self::ACTION_DENY
             ];
         }
-        return availableAction[$current_status];
+        return $availableAction[$current_status];
     }
 
     public function getNewStatus ($action)
