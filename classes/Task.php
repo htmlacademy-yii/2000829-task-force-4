@@ -45,24 +45,26 @@ class Task
         ];
     }
 
-    public function getAvailableAction($current_id, $current_status)
+    public function getAvailableAction($current_id, $current_status): string
     {
         if ($current_id === $this->customer_id) {
             $availableAction = [
                 self::STATUS_NEW => self::ACTION_CANCEL,
                 self::STATUS_WORK => self::ACTION_DONE
             ];
+            return $availableAction[$current_status];
         }
         if ($current_id === $this->implementer_id) {
             $availableAction = [
                 self::STATUS_NEW => self::ACTION_RESPOND,
                 self::STATUS_WORK => self::ACTION_DENY
             ];
+            return $availableAction[$current_status];
         }
-        return $availableAction[$current_status];
+        return 'Пользователь не найден!';
     }
 
-    public function getNewStatus ($action)
+    public function getNewStatus ($action): string
     {
         $newStatus = [
             self::ACTION_CANCEL => self::STATUS_CANCEL,
