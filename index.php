@@ -1,5 +1,8 @@
 <?php
-require_once 'classes/Task.php';
+
+use TaskForce\classes\Task;
+
+require_once 'vendor/autoload.php';
 
 $task = new Task(1, 2, 'new');
 
@@ -13,9 +16,6 @@ assert($task->getAvailableAction(2, Task::STATUS_NEW) === Task::ACTION_RESPOND, 
 
 assert($task->getAvailableAction(1, Task::STATUS_WORK) === Task::ACTION_DONE, 'done');
 assert($task->getAvailableAction(2, Task::STATUS_WORK) === Task::ACTION_DENY, 'failed');
-
-//assert($task->getAvailableAction(3, Task::STATUS_NEW) === Task::ACTION_CANCEL, 'cancel');
-//assert($task->getAvailableAction(3, Task::STATUS_NEW) === Task::ACTION_RESPOND, 'respond');
 
 $mapStatus = $task->getMapStatus();
 $mapAction = $task->getMapAction();
