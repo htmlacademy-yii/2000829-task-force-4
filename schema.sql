@@ -36,9 +36,9 @@ CREATE TABLE tasks (
   status VARCHAR (64) NOT NULL,
   name VARCHAR(255) NOT NULL,
   description TEXT,
-  file_id VARCHAR(255),
   deadline_at DATE NULL,
   budget INT NOT NULL,
+  file_id INT,
   user_id INT,
   category_id INT,
   city_id INT
