@@ -3,19 +3,13 @@ src
 |____Model
 |    |____User
 |    |    |____Events
-|    |    |    |__ChangeAvatar.php
-|    |    |    |__ChangeEmail.php
-|    |    |    |__AddPhone.php
-|    |    |    |__AddTelegram.php
+|    |    |    |__ChangeData.php
 |    |    |    |__ChangePassword.php
 |    |    |    |
 |    |    |
 |    |    |__User.php
-|    |    |__Id.php
+|    |    |__customer.php
 |    |    |__Implementer.php
-|    |    |__Speciality.php
-|    |    |__City.php
-|    |    |
 |    |
 |    |____Task
 |    |    |____Action
@@ -27,41 +21,31 @@ src
 |    |    |    |
 |    |    |
 |    |    |__Task.php
-|    |    |__Id.php
 |    |    |__Category.php
-|    |    |__Status.php
-|    |    |__Test.php
 |    |    |
+|    |
 |    |__Feedback.php
+|    |__User_category.php
+|    |__City.php
+|    |
 
 class User - содержит вложенные объекты-значения - "агрегат"
   содержит конструкторы и методы
   Modal\User
 
-  > class Id - Modal\User\Id - хранит Id, не был пустым, не менялся;
-  > class City - Modal\User\City - хранит id города, соотношение введенного адреса с геолокацией;
-  > class Implementer - Modal\User\Implementer - изменение значений Испольнитель/Заказчик, открытие соотвествующих действий,
-      связанных со статусом и связанные с этим ошибки;
-  > class Speciality - Modal\User\Speciality - хранит id категории к торой принадлжеит только исполнитель,
-      выполняет с этим связанный поиск?;
+  > class customer - Modal\User\Modal\User - открывает ветвь методов характерных только для заказчика;
+  > class Implementer - Modal\User\Implementer - открывает ветвь метов характерных только для исполнителя;
 
   Modal\User\Events
 
-  > class ChangeAvatar - Modal\User\Events\ChangeAvatar - смена аватара;
-  > class ChangeEmail - Modal\User\Events\ChangeEmail - смена имейла;
+  > class ChangeData - Modal\User\Events\ChangeData - смена и изменения связанные с данными пользователяаватара;
   > class ChangePassword - Modal\User\Events\ChangePassword - смена пароля и проверка с учетом его уникальности;
-  > class AddPhone - Modal\User\Events\AddPhone - добавление или изменение телефона;
-  > class AddTelegram - Modal\User\Events\AddTelegram - добавление или изменение телеграма;
 
 class Task - содержит вложенные объекты-значения - "агрегат"
   содержит конструкторы и методы
   Modal\Task
 
-  > class Id - Modal\Task\Id - хранит Id, проверка не был пустым, не менялся;
-  > class City - Modal\Task\Status - изменение статусов - это как Test.php?;
-  > class Implementer - Modal\Task\Implementer - изменение значений Испольнитель/Заказчик, открытие соотвествующих действий,
-      связанных со статусом и связанные с этим ошибки;
-  > class Speciality - Modal\Task\Category - хранит id категории к торой принадлежит только задание,
+  > class Category - Modal\Task\Category - хранит id категории к торой принадлежит только задание,
       выполняет с этим связанная фильтрация;
 
   Modal\Task\Action
@@ -72,3 +56,6 @@ class Task - содержит вложенные объекты-значения
   > class ActionDeny - Modal\User\Events\ActionDeny - изменение статуса, включение счетчика с изменением рейтинга исполнителя;
 
 class Feedback - Modal\Feedback - отвечает получение данных от заказчика с выполнением оценки - изменение рейтинга исполнителя, получение текстовых данных (комментарий).
+class User_category - Modal\User_category - хранит id категории к которой принадлежит только исполнитель,
+      выполняет с этим связанный поиск?;
+class City - Modal\City - переход введенных данных адреса на в геоданные для карты.
