@@ -1,6 +1,6 @@
 
 src
-|____Model
+|____Classes
 |    |____User
 |    |    |____Events
 |    |    |    |__ChangeData.php
@@ -14,6 +14,7 @@ src
 |    |____Task
 |    |    |____Action
 |    |    |    |__Action.php
+|    |    |    |__AbstractAction.php
 |    |    |    |__ActionCancel.php
 |    |    |    |__ActionRespond.php
 |    |    |    |__ActionDone.php
@@ -50,10 +51,11 @@ class Task - содержит вложенные объекты-значения
 
   Modal\Task\Action
 
-  > class ActionCancel - Modal\User\Events\ActionCancel - проверка пользователя и статуса New, смена статуса и с соответсвующей периадресацией;
-  > class ActionRespond - Modal\User\Events\ActionRespond - проверка и смена статуса, назначение исполнителя;
-  > class ActionDone - Modal\User\Events\ActionDone - проверка пользователя, смена статуса на "Выполнено", переадресация на Feedback;
-  > class ActionDeny - Modal\User\Events\ActionDeny - изменение статуса, включение счетчика с изменением рейтинга исполнителя;
+  > class AbstractAction - TaskForce\classes\Task\Actions
+  > class ActionCancel - TaskForce\classes\Task\Actions - проверка пользователя и статуса New, смена статуса и с соответсвующей периадресацией;
+  > class ActionRespond - TaskForce\classes\Task\Actions - проверка и смена статуса, назначение исполнителя;
+  > class ActionDone - TaskForce\classes\Task\Actions - проверка пользователя, смена статуса на "Выполнено", переадресация на Feedback;
+  > class ActionDeny - TaskForce\classes\Task\Actions - изменение статуса, включение счетчика с изменением рейтинга исполнителя;
 
 class Feedback - Modal\Feedback - отвечает получение данных от заказчика с выполнением оценки - изменение рейтинга исполнителя, получение текстовых данных (комментарий).
 class User_category - Modal\User_category - хранит id категории к которой принадлежит только исполнитель,
