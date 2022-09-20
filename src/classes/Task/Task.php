@@ -1,6 +1,11 @@
 <?php
 
-namespace TaskForce\classes;
+namespace TaskForce\classes\Task;
+
+use TaskForce\classes\Task\Actions\ActionCancel;
+use TaskForce\classes\Task\Actions\ActionRespond;
+use TaskForce\classes\Task\Actions\ActionDone;
+use TaskForce\classes\Task\Actions\ActionDeny;
 
 class Task
 {
@@ -40,10 +45,10 @@ class Task
     public function getMapAction(): array
     {
         return [
-            self::ACTION_CANCEL => 'Отменить',
-            self::ACTION_RESPOND => 'Откликнуться',
-            self::ACTION_DONE => 'Выполнено',
-            self::ACTION_DENY => 'Отказаться'
+            ActionCancel::class => ActionCancel::getNameAction(),
+            ActionRespond::class => ActionRespond::getNameAction(),
+            ActionDone::class => ActionDone::getNameAction(),
+            ActionRespond::class => ActionRespond::getNameAction(),
         ];
     }
 
